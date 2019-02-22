@@ -2,13 +2,13 @@
 
 import time
 import threading
-from MCP3008 import MCP3008
+import grove_i2c_adc
 
 class Pulsesensor:
     def __init__(self, channel = 0, bus = 0, device = 0):
         self.channel = channel
         self.BPM = 0
-        self.adc = MCP3008(bus, device)
+        self.adc = grove_i2c_adc.ADC(address=0x50)
 
     def getBPMLoop(self):
         # init variables
